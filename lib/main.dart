@@ -47,15 +47,8 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
-        leading: IconButton(
-          icon: Icon(
-            Icons.menu,
-          ),
-          onPressed: () {
-            Navigator.of(context).pushReplacementNamed(RotasApp.DRAWER);
-          },
-        ),
       ),
+      drawer: AppDrawer(),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
