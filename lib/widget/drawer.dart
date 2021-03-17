@@ -5,11 +5,12 @@ class AppDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       child: Container(
+        color: Colors.blueGrey[200],
         child: ListView(
           children: [
             Column(
               children: [
-                _drawerInfos(),
+                _drawerUserInfos(),
                 Center(
                   child: ListTile(
                     leading: Icon(Icons.next_week_rounded),
@@ -65,7 +66,7 @@ class AppDrawer extends StatelessWidget {
   }
 }
 
-_drawerInfos() {
+_drawerUserInfos() {
   return Center(
     child: Column(
       children: [

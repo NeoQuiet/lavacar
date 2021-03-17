@@ -6,8 +6,31 @@ const pool = new Pool({
   password: 'postgres',
   port: 5432,
 })
+
+async function connect() {
+  if (global.connection)
+      return global.connection.connect();
+
+  const { Pool } = require('pg');
+  const pool = new Pool({
+      connectionString: 'postgres://fyazuind:r34WG7VcdfJvN4WplbWYHEk-hfyYELv1@isilo.db.elephantsql.com:5432/fyazuind'
+  });
+
+  //apenas testando a conexão
+  const client = await pool.connect();
+  console.log("Criou pool de conexões no PostgreSQL!");
+
+  const res = await client.query('SELECT NOW()');
+  console.log(res.rows[0]);
+  client.release();
+
+  //guardando para usar sempre o mesmo
+  global.connection = pool;
+  return pool.connect();
+}
+
 const getMarcas = (request, response) => {
-  pool.query('SELECT * FROM marca ORDER BY id ASC', (error, results) => {
+  pool.query('SELECT * FROM marca', (error, results) => {
     if (error) {
       throw error
     }
@@ -27,13 +50,14 @@ const getMarcasById = (request, response) => {
 }
 
 const createMarca = (request, response) => {
-  const { id,marca, dtcad } = request.body
-
+     const {id,marca,dtcad} =  request.body
   pool.query('INSERT INTO marca (id,marca, dtcad) VALUES ($1, $2,$3)', [id,marca,dtcad], (error, results) => {
     if (error) {
+
       throw error
     }
-    response.status(201).send(`User added with ID: ${result.insertId}`)
+    response.status(200).send('Marca adicionad ${marca}')
+    response.status(201).send(`User added with`)
   })
 }
 
