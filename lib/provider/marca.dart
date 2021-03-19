@@ -40,29 +40,6 @@ void getHttp() async {
   }
 }
 
-/* Future<void> adicionarMarcaLista() async {
-    var url = 'localhost:3030';
-    var response = await http.get(
-      Uri.http(url, '/marca'),
-    );
-    Map<String, dynamic> data =
-        json.decode(response.body).cast<Map<String, dynamic>>().toList();
-    _listMarcaProvider.clear();
-    if (data != null) {
-      data.forEach((id, marcaDados) {
-        _listMarcaProvider.add(
-          Marca(
-            id: id,
-            marca: marcaDados['marca'],
-            dtcad: marcaDados['dtcad'],
-          ),
-        );
-      });
-      notifyListeners();
-    }
-    return Future.value();
-
-  } */
 final String url = 'localhost:3030';
 Future<List<MarcaProvider>> pegarDadosJson() async {
   var response = await http.get(

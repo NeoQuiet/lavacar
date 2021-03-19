@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:lavacar/provider/marca.dart';
 import 'package:lavacar/widget/drawer.dart';
@@ -15,22 +13,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  /* final _formularioDados = Map<String, Object>();
-
-  final _formulario = GlobalKey<FormState>();
-
-  void _salvarFormulario() {
-    _formulario.currentState.save();
-
-    final marca = Marca(
-      id: _formularioDados['id'],
-      marca: _formularioDados['marca'],
-      dtcad: _formularioDados['dtcad'],
-    );
-
-    Provider.of<Marcas>(context, listen: false).inserirMarca(marca);
-  } */
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -80,6 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 
+//appbar da barra de tarefas
   _appBar() {
     return AppBar(
       actions: [

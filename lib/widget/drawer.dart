@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lavacar/util/rotas.dart';
 
 class AppDrawer extends StatelessWidget {
   @override
@@ -15,7 +16,10 @@ class AppDrawer extends StatelessWidget {
                   child: ListTile(
                     leading: Icon(Icons.next_week_rounded),
                     title: Text('Ordens'),
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.of(context)
+                          .pushReplacementNamed(RotasApp.ORDENS_PAGE);
+                    },
                   ),
                 ),
                 ListTile(
@@ -31,7 +35,10 @@ class AppDrawer extends StatelessWidget {
                 ListTile(
                   leading: Icon(Icons.invert_colors_on_outlined),
                   title: Text('Produtos'),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.of(context)
+                        .pushReplacementNamed(RotasApp.PRODUTO_PAGE);
+                  },
                 ),
                 ListTile(
                   leading: Icon(Icons.car_rental),
